@@ -6,8 +6,6 @@ The template uses the official `ghcr.io/ericerkz/kept:latest` image. Kept uses S
 
 ## Installation
 
-Once the listing is available in Community Applications:
-
 1. Search for **Kept** in Unraid's **Apps** tab and choose **Install**.
 2. Choose the Web UI port and appdata location. The defaults are port `6767` and `/mnt/user/appdata/kept`.
 3. Set your timezone and apply the configuration.
