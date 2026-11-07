@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CommunityApplications>
+  <Profile>I maintain Kept, a self-hosted notes app. This repository contains its Unraid Docker template. For help or bug reports, use the Kept GitHub issues.</Profile>
+  <Icon>https://raw.githubusercontent.com/ericerkz/kept/v1.9.2/src/assets/images/kept-icon-512.png</Icon>
+  <WebPage>https://www.keepitkept.xyz/</WebPage>
+  <Forum>https://github.com/ericerkz/kept/issues</Forum>
+</CommunityApplications>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Container version="2">
+  <Name>Kept</Name>
+  <Repository>ghcr.io/ericerkz/kept:latest</Repository>
+  <Registry>https://github.com/users/ericerkz/packages/container/package/kept</Registry>
+  <Network>bridge</Network>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/ericerkz/kept/issues</Support>
+  <Project>https://github.com/ericerkz/kept</Project>
+  <Overview>Kept is a self-hosted notes app with a Google Keep-style feel. Create text notes, checklists, drawings, and reminders; add images and attachments; organize with labels and binders; and share notes with other users on your server. Native iOS and Android apps are also available.
+
+After installation, open the Web UI and create the first administrator account. Kept uses SQLite, so no separate database is needed. Notes, uploaded files, and backups are stored in the appdata directory.
+
+Use HTTPS through a reverse proxy for public access, browser push notifications, and PWA features. See the project documentation for setup and mobile app links.</Overview>
+  <Category>Productivity:</Category>
+  <WebUI>http://[IP]:[PORT:6767]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/ericerkz/kept-unraid/main/templates/kept.xml</TemplateURL>
+  <ReadMe>https://raw.githubusercontent.com/ericerkz/kept-unraid/main/README.md</ReadMe>
+  <Icon>https://raw.githubusercontent.com/ericerkz/kept/v1.9.2/src/assets/images/kept-icon-512.png</Icon>
+  <Screenshot>https://raw.githubusercontent.com/ericerkz/kept/v1.9.2/src/assets/images/ui-showcase.png</Screenshot>
+  <ExtraSearchTerms>notes note-taking checklist reminders google keep</ExtraSearchTerms>
+  <License>AGPL-3.0-only</License>
+  <Config Name="Web UI Port" Target="6767" Default="6767" Mode="tcp" Description="Host port for Kept's Web UI. Change this if another container already uses port 6767." Type="Port" Display="always" Required="true" Mask="false">6767</Config>
+  <Config Name="Appdata" Target="/app/data" Default="/mnt/user/appdata/kept" Mode="rw" Description="Persistent SQLite database, images, attachments, and backups. Use a local appdata share or pool directory, not an SMB or NFS mount. Back up this directory." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/kept</Config>
+  <Config Name="Timezone" Target="TZ" Default="Etc/UTC" Description="Timezone name, such as America/New_York or Europe/London." Type="Variable" Display="always" Required="true" Mask="false">Etc/UTC</Config>
+  <Config Name="User ID" Target="PUID" Default="99" Description="User ID that owns Kept's files. Unraid's nobody user is normally 99. Kept starts as root to prepare storage ownership, then runs the server as this user." Type="Variable" Display="advanced" Required="true" Mask="false">99</Config>
+  <Config Name="Group ID" Target="PGID" Default="100" Description="Group ID that owns Kept's files. Unraid's users group is normally 100." Type="Variable" Display="advanced" Required="true" Mask="false">100</Config>
+  <Config Name="Server URL" Target="BASE_URL" Default="" Description="Optional public origin, such as https://notes.example.com, without a trailing path. Required for OIDC sign-in and remote MCP/OAuth. Leave blank for ordinary LAN access." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Application Environment" Target="NODE_ENV" Default="production" Description="Kept's runtime environment." Type="Variable" Display="hidden" Required="true" Mask="false">production</Config>
+  <Config Name="Container Port" Target="PORT" Default="6767" Description="Internal HTTP port. Change the host port using Web UI Port instead." Type="Variable" Display="hidden" Required="true" Mask="false">6767</Config>
+  <Config Name="Data Directory" Target="DATA_DIR" Default="/app/data" Description="Container path for persistent Kept data." Type="Variable" Display="hidden" Required="true" Mask="false">/app/data</Config>
+  <Config Name="SQLite Database" Target="SQLITE_PATH" Default="/app/data/kept.sqlite" Description="SQLite database inside the persistent data directory." Type="Variable" Display="hidden" Required="true" Mask="false">/app/data/kept.sqlite</Config>
+  <Config Name="Images Directory" Target="UPLOAD_DIR" Default="/app/data/uploads" Description="Uploaded images inside the persistent data directory." Type="Variable" Display="hidden" Required="true" Mask="false">/app/data/uploads</Config>
+  <Config Name="Attachments Directory" Target="ATTACHMENT_DIR" Default="/app/data/attachments" Description="File attachments inside the persistent data directory." Type="Variable" Display="hidden" Required="true" Mask="false">/app/data/attachments</Config>
+  <Config Name="Import Directory" Target="TAKEOUT_TMP_DIR" Default="/app/data/imports/tmp" Description="Temporary import files inside the persistent data directory." Type="Variable" Display="hidden" Required="true" Mask="false">/app/data/imports/tmp</Config>
+</Container>
