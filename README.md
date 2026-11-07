@@ -31,4 +31,4 @@ The native iOS and Android apps connect to the same server URL. See [Kept's docu
 
 Report problems through [Kept's GitHub issues](https://github.com/ericerkz/kept/issues). For template problems, include your Unraid version and container configuration with any secrets removed.
 
-The template is licensed under [AGPL-3.0-only](LICENSE). [Kept](https://github.com/ericerkz/kept/blob/master/LICENCE.MD) is also licensed under AGPL-3.0-only.
+The template is licensed under [AGPL-3.0-only](LICENSE). [Kept](https://github.com/ericerkz/kept/blob/master/LICENSE) is also licensed under AGPL-3.0-only.
